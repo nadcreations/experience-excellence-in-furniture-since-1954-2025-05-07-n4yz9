@@ -1,223 +1,425 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Mutlaq Furniture | Excellence Since 1954</title>
     <meta name="description" content="Experience excellence in furniture design and manufacturing since 1954. Specializing in offices, hospitality, residential, and kitchen solutions.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-inter antialiased">
-    <header class="fixed w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-800" x-data="{ isOpen: false }">
-        <nav class="container mx-auto px-6 py-4">
+    <!-- Header -->
+    <header class="fixed w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4" x-data="{ mobileMenuOpen: false }">
             <div class="flex items-center justify-between">
-                <a href="/" class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                <a href="https://nadcreations.github.io/experience-excellence-in-furniture-since-1954-2025-05-07-n4yz9" 
+                   class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
                     Al Mutlaq
                 </a>
+                
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-300 hover:text-white transition-colors duration-300">Solutions</a>
-                    <a href="#benefits" class="text-gray-300 hover:text-white transition-colors duration-300">Services</a>
-                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+                    <a href="#features" class="text-gray-300 hover:text-white hover:scale-105 transition-all duration-300">Solutions</a>
+                    <a href="#benefits" class="text-gray-300 hover:text-white hover:scale-105 transition-all duration-300">Services</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-white hover:scale-105 transition-all duration-300">Testimonials</a>
+                    <a href="#about" class="text-gray-300 hover:text-white hover:scale-105 transition-all duration-300">About</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white hover:scale-105 transition-all duration-300">FAQ</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white hover:scale-105 transition-all duration-300">Contact</a>
                 </div>
-                <button @click="isOpen = !isOpen" class="md:hidden text-gray-300 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path x-show="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        <path x-show="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
+
+                <!-- Mobile Menu Button -->
+                <button 
+                    class="mobile-menu-button md:hidden text-gray-300 hover:text-white focus:outline-none"
+                    @click="mobileMenuOpen = !mobileMenuOpen"
+                    aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-2xl" :class="{'hidden': mobileMenuOpen}"></i>
+                    <i class="fas fa-times text-2xl" :class="{'hidden': !mobileMenuOpen}"></i>
                 </button>
             </div>
-            <div x-show="isOpen" class="md:hidden mt-4 space-y-4">
-                <a href="#features" class="block text-gray-300 hover:text-white transition-colors duration-300">Solutions</a>
-                <a href="#benefits" class="block text-gray-300 hover:text-white transition-colors duration-300">Services</a>
-                <a href="#faq" class="block text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
-                <a href="#contact" class="block text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden" 
+                 x-show="mobileMenuOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 @click.away="mobileMenuOpen = false"
+                 x-cloak>
+                <div class="py-4 space-y-4">
+                    <a href="#features" class="block text-gray-300 hover:text-white hover:bg-gray-800 px-4 py-2 rounded transition-colors duration-300">Solutions</a>
+                    <a href="#benefits" class="block text-gray-300 hover:text-white hover:bg-gray-800 px-4 py-2 rounded transition-colors duration-300">Services</a>
+                    <a href="#testimonials" class="block text-gray-300 hover:text-white hover:bg-gray-800 px-4 py-2 rounded transition-colors duration-300">Testimonials</a>
+                    <a href="#about" class="block text-gray-300 hover:text-white hover:bg-gray-800 px-4 py-2 rounded transition-colors duration-300">About</a>
+                    <a href="#faq" class="block text-gray-300 hover:text-white hover:bg-gray-800 px-4 py-2 rounded transition-colors duration-300">FAQ</a>
+                    <a href="#contact" class="block text-gray-300 hover:text-white hover:bg-gray-800 px-4 py-2 rounded transition-colors duration-300">Contact</a>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-32">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
             <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-gray-900 z-0"></div>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center max-w-4xl mx-auto">
-                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in">
                         Experience Excellence in Furniture Since 1954
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-                        Crafting exceptional spaces through innovative design and superior craftsmanship
+                        Transforming spaces with innovative design, superior craftsmanship, and timeless elegance for over six decades.
                     </p>
-                    <a href="https://almutlaqfurniture.com" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold px-8 py-4 rounded-full text-lg hover:scale-105 transform transition duration-300 shadow-lg hover:shadow-purple-500/25">
+                    <a href="https://almutlaqfurniture.com" 
+                       class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold px-8 py-4 rounded-full text-lg 
+                              hover:scale-105 transform transition duration-300 shadow-lg hover:shadow-purple-500/25
+                              hover:from-purple-600 hover:to-pink-600">
                         Explore Our Collection
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- Features Section -->
         <section id="features" class="py-24 bg-gray-800/50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Comprehensive Solutions
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition duration-300 border border-gray-700 hover:border-purple-500/50 group">
-                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <!-- Office Solutions -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 
+                                  flex items-center justify-center group-hover:scale-110 transition duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Offices</h3>
-                        <p class="text-gray-400">Professional workspace solutions designed for productivity and comfort</p>
+                        <h3 class="text-xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Office Solutions
+                        </h3>
+                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                            Create productive workspaces with our ergonomic office furniture, designed for modern professionals. 
+                            From executive suites to collaborative spaces, we deliver comfort and functionality.
+                        </p>
                     </div>
 
-                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition duration-300 border border-gray-700 hover:border-purple-500/50 group">
-                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <!-- Hospitality Solutions -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 
+                                  flex items-center justify-center group-hover:scale-110 transition duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Hospitality</h3>
-                        <p class="text-gray-400">Elegant furnishings for hotels, restaurants, and leisure spaces</p>
+                        <h3 class="text-xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Hospitality Excellence
+                        </h3>
+                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                            Transform hotels, restaurants, and leisure spaces with our luxurious hospitality furniture. 
+                            We blend comfort with sophistication to create memorable guest experiences.
+                        </p>
                     </div>
 
-                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition duration-300 border border-gray-700 hover:border-purple-500/50 group">
-                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <!-- Residential Solutions -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 
+                                  flex items-center justify-center group-hover:scale-110 transition duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Residential</h3>
-                        <p class="text-gray-400">Luxurious home furnishings that blend style with comfort</p>
+                        <h3 class="text-xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Residential Luxury
+                        </h3>
+                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                            Elevate your living spaces with our premium residential furniture collections. 
+                            From contemporary to classic designs, we create homes that inspire and comfort.
+                        </p>
                     </div>
 
-                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition duration-300 border border-gray-700 hover:border-purple-500/50 group">
-                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <!-- Kitchen Solutions -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="h-16 w-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl mb-6 
+                                  flex items-center justify-center group-hover:scale-110 transition duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Kitchens</h3>
-                        <p class="text-gray-400">Modern kitchen solutions combining functionality with design</p>
+                        <h3 class="text-xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Kitchen Innovation
+                        </h3>
+                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                            Design your dream kitchen with our innovative solutions. Combining functionality with 
+                            modern aesthetics, we create the heart of your home.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Benefits Section -->
         <section id="benefits" class="py-24">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Our Services
+                    Our Premium Services
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="text-center">
-                        <div class="h-20 w-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6">
+                    <!-- Design Service -->
+                    <div class="text-center group hover:scale-105 transition-all duration-300">
+                        <div class="h-20 w-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full 
+                                  flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300
+                                  group-hover:shadow-lg group-hover:shadow-purple-500/25">
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">Design</h3>
-                        <p class="text-gray-400 leading-relaxed">Innovative design solutions tailored to your unique needs and preferences</p>
+                        <h3 class="text-2xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Custom Design
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                            Our expert designers create bespoke solutions tailored to your vision. From concept to completion, 
+                            we ensure every detail reflects your style and requirements.
+                        </p>
                     </div>
 
-                    <div class="text-center">
-                        <div class="h-20 w-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6">
+                    <!-- Manufacturing Service -->
+                    <div class="text-center group hover:scale-105 transition-all duration-300">
+                        <div class="h-20 w-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full 
+                                  flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300
+                                  group-hover:shadow-lg group-hover:shadow-purple-500/25">
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">Manufacturing</h3>
-                        <p class="text-gray-400 leading-relaxed">State-of-the-art manufacturing facilities ensuring premium quality</p>
+                        <h3 class="text-2xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Premium Manufacturing
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                            Utilizing state-of-the-art technology and master craftsmanship, we produce furniture that meets 
+                            the highest standards of quality and durability.
+                        </p>
                     </div>
 
-                    <div class="text-center">
-                        <div class="h-20 w-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6">
+                    <!-- Project Management Service -->
+                    <div class="text-center group hover:scale-105 transition-all duration-300">
+                        <div class="h-20 w-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full 
+                                  flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300
+                                  group-hover:shadow-lg group-hover:shadow-purple-500/25">
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">Project Management</h3>
-                        <p class="text-gray-400 leading-relaxed">Comprehensive project management from concept to completion</p>
+                        <h3 class="text-2xl font-semibold mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                            Expert Project Management
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                            Our dedicated project managers ensure seamless execution from initial consultation to final installation, 
+                            delivering your vision on time and within budget.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-24 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Client Success Stories
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6 italic">
+                            "Al Mutlaq transformed our office space completely. The attention to detail and quality 
+                            of furniture exceeded our expectations. Our team's productivity has increased significantly."
+                        </p>
+                        <div>
+                            <p class="font-semibold">Sarah Anderson</p>
+                            <p class="text-sm text-gray-500">CEO, Tech Innovations Inc.</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6 italic">
+                            "The custom kitchen solution provided by Al Mutlaq is simply outstanding. The design team 
+                            understood our vision perfectly and delivered beyond our expectations."
+                        </p>
+                        <div>
+                            <p class="font-semibold">Michael Chen</p>
+                            <p class="text-sm text-gray-500">Property Developer</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6 italic">
+                            "Working with Al Mutlaq for our hotel renovation was a pleasure. Their hospitality furniture 
+                            solutions have received countless compliments from our guests."
+                        </p>
+                        <div>
+                            <p class="font-semibold">Emma Thompson</p>
+                            <p class="text-sm text-gray-500">Hotel Operations Director</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="bg-gray-800/50 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 
+                                border border-gray-700 hover:border-purple-500/50 group
+                                hover:scale-102 hover:shadow-xl hover:shadow-purple-500/10">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6 italic">
+                            "The residential furniture collection we purchased is absolutely stunning. The quality and 
+                            craftsmanship are unmatched. Our home has been completely transformed."
+                        </p>
+                        <div>
+                            <p class="font-semibold">David Martinez</p>
+                            <p class="text-sm text-gray-500">Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Our Story
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Founded in 1954, Al Mutlaq Furniture began as a small family workshop dedicated to crafting 
+                        bespoke furniture pieces. Through decades of innovation and unwavering commitment to quality, 
+                        we have grown into one of the region's leading furniture manufacturers, serving clients across 
+                        various sectors while maintaining our founding principles of excellence and craftsmanship.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Our mission is to transform spaces through innovative design and superior craftsmanship, creating 
+                        environments that inspire, comfort, and endure. We believe in sustainable practices, investing in 
+                        our people, and maintaining the highest standards of quality in everything we do. Our core values 
+                        of integrity, innovation, and customer satisfaction guide every project we undertake.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
         <section id="faq" class="py-24 bg-gray-800/50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Frequently Asked Questions
                 </h2>
                 <div class="max-w-3xl mx-auto space-y-6" x-data="{selected:null}">
-                    <div class="bg-gray-800/50 rounded-xl">
-                        <button @click="selected !== 1 ? selected = 1 : selected = null" class="flex justify-between items-center w-full p-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-gray-800/50 rounded-xl hover:bg-gray-800 transition-colors duration-300">
+                        <button @click="selected !== 1 ? selected = 1 : selected = null" 
+                                class="flex justify-between items-center w-full p-6 focus:outline-none">
                             <span class="text-lg font-semibold">What sets Al Mutlaq apart from other furniture manufacturers?</span>
-                            <svg class="w-6 h-6 transition-transform" :class="{'rotate-180': selected == 1}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 transition-transform duration-300" 
+                                 :class="{'rotate-180': selected == 1}" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div x-show="selected == 1" class="px-6 pb-6">
-                            <p class="text-gray-400">With over 65 years of experience, we combine traditional craftsmanship with modern innovation to create exceptional furniture solutions.</p>
+                        <div x-show="selected == 1" 
+                             x-transition:enter="transition ease-out duration-200" 
+                             x-transition:enter-start="opacity-0 transform -translate-y-2" 
+                             x-transition:enter-end="opacity-100 transform translate-y-0" 
+                             x-transition:leave="transition ease-in duration-150" 
+                             x-transition:leave-start="opacity-100 transform translate-y-0" 
+                             x-transition:leave-end="opacity-0 transform -translate-y-2" 
+                             class="px-6 pb-6">
+                            <p class="text-gray-400">
+                                With over 65 years of experience, we combine traditional craftsmanship with modern innovation. 
+                                Our integrated approach to design, manufacturing, and project management ensures exceptional 
+                                quality and customer satisfaction at every step.
+                            </p>
                         </div>
                     </div>
-                    
-                    <!-- More FAQ items... -->
-                </div>
-            </div>
-        </section>
 
-        <section id="contact" class="py-24 bg-gradient-to-br from-purple-900/20 to-gray-900">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Transform Your Space?</h2>
-                    <p class="text-xl text-gray-300 mb-12">Contact us to discuss your project</p>
-                    <a href="mailto:projects@almutlaqfurniture.com" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold px-8 py-4 rounded-full text-lg hover:scale-105 transform transition duration-300 shadow-lg hover:shadow-purple-500/25">
-                        Contact Us Today
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800/50 border-t border-gray-800">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Al Mutlaq</h3>
-                    <p class="text-gray-400">Excellence in furniture since 1954</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Solutions</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Offices</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Hospitality</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Residential</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Kitchens</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <p class="text-gray-400">projects@almutlaqfurniture.com</p>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400">&copy; 2024 Al Mutlaq Furniture. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-gray-800/50 rounded-xl hover:bg-gray-800 transition-colors duration-300">
+                        <button @click="selected !== 2 ? selected = 2 : selected = null" 
+                                class="flex justify-between items-center w-full p-6 focus:outline-none">
+                            <span class="text-lg font-semibold">What is your design process?</span>
+                            <svg class="w-6 h-6 transition-transform duration-300" 
+                                 :class="{'rotate-180': selected == 2}" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
 </body>
 </html>
